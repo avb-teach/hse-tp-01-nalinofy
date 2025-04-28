@@ -1,6 +1,5 @@
 #!/bin/bash
 chmod +x collect_files.sh
-
 input_dir="$1"
 output_dir="$2"
 
