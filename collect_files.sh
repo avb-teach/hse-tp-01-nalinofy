@@ -1,16 +1,9 @@
 #!/bin/bash
-if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <input_directory> <output_directory>"
-    exit 1
-fi
+chmod +x collect_files.sh
 
 input_dir="$1"
 output_dir="$2"
 
-if [ ! -d "$input_dir" ]; then
-    echo "Error: Input directory does not exist"
-    exit 1
-fi
 
 mkdir -p "$output_dir"
 
