@@ -3,10 +3,6 @@ chmod +x collect_files.sh
 max_depth=-1  
 shift $((OPTIND-1))
 
-if [ "$#" -ne 2 ]; then
-    usage
-fi
-
 input_dir="$1"
 output_dir="$2"
 
