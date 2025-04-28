@@ -1,26 +1,6 @@
 #!/bin/bash
-usage() {
-    echo "Использование: $0 [опции] <входная_директория> <выходная_директория>"
-    echo "Опции:"
-    echo "  -max_depth N   Ограничить глубину сканирования до N уровней"
-    exit 1
-}
+chmod +x collect_files.sh
 max_depth=-1  
-while getopts ":m:" opt; do
-    case $opt in
-        m)
-            max_depth=$OPTARG
-            ;;
-        \?)
-            echo "Неверная опция: -$OPTARG" >&2
-            usage
-            ;;
-        :)
-            echo "Опция -$OPTARG требует аргумента." >&2
-            usage
-            ;;
-    esac
-done
 shift $((OPTIND-1))
 
 if [ "$#" -ne 2 ]; then
@@ -29,11 +9,6 @@ fi
 
 input_dir="$1"
 output_dir="$2"
-
-if [ ! -d "$input_dir" ]; then
-    echo "Ошибка: входная директория '$input_dir' не существует" >&2
-    exit 1
-fi
 
 mkdir -p "$output_dir"
 
@@ -86,5 +61,3 @@ copy_files() {
 }
 
 copy_files "$input_dir" "$output_dir" 0
-
-echo "Файлы успешно скопированы в $output_dir"
